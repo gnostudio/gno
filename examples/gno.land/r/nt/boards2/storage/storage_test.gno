@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"gno.land/r/demo/boards2/storage"
+	"gno.land/r/nt/boards2/storage"
 )
 
 func TestDefineEntity(t *testing.T) {
