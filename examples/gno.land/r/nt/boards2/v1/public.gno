@@ -233,9 +233,11 @@ func DeleteThread(boardID BoardID, threadID PostID) {
 		assertHasBoardPermission(board, caller, PermissionThreadDelete)
 	}
 
-	// TODO: Discuss how to deal with thread deletion (should we hide instead?)
+	// TODO: Soft delete thread instead (consider pagination)
 	board.DeleteThread(threadID)
 }
+
+// TODO: Add support for freezing threads (FreezeThread)
 
 // DeleteReply deletes a reply from a thread.
 //
