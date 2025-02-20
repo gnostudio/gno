@@ -30,9 +30,9 @@ type Board struct {
 	threads   avl.Tree // Post.id -> *Post
 	postsCtr  uint64   // increments Post.id
 	createdAt time.Time
-	deleted   avl.Tree // TODO reserved for fast-delete.
 	perms     Permissions
 	readOnly  bool
+	// deleted avl.Tree // Post.id -> *Post // TODO: Move deleted threads here (fast delete support)
 }
 
 func newBoard(id BoardID, name string, creator std.Address) *Board {
@@ -42,7 +42,6 @@ func newBoard(id BoardID, name string, creator std.Address) *Board {
 		creator:   creator,
 		threads:   avl.Tree{},
 		createdAt: time.Now(),
-		deleted:   avl.Tree{},
 		perms:     createDefaultBoardPermissions(creator),
 	}
 }

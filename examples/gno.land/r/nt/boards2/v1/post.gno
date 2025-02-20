@@ -31,7 +31,7 @@ type Post struct {
 	creator       std.Address
 	title         string // optional
 	body          string
-	isHidden      bool
+	isHidden      bool     // TODO: Change to isDeleted (fast delete support)
 	replies       avl.Tree // Post.id -> *Post
 	repliesAll    avl.Tree // Post.id -> *Post (all replies, for top-level posts)
 	reposts       avl.Tree // Board.id -> Post.id
